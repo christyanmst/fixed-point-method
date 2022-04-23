@@ -1,4 +1,3 @@
-
 import calendar
    
 x = int(input('Digite um ano para o calendário:\n'))
