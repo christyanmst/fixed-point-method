@@ -8,4 +8,4 @@ i = calendar.calendar(x, 2, 1, 6)
 
 print("\nO ",y,"º mês de ",x," é:\n",z)
 
-print("O calendário do ano de ",x, " é: ", i)
+print("O calendário do ano de ",x, " é:\n", i) 
