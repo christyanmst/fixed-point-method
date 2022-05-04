@@ -1,35 +1,45 @@
 from numpy import*
 import math
 
-print("Método do Ponto Fixo!")
-a   = float(input("Informe o primeiro intervalo:\n"))
-b   = float(input("Informe o segundo intervalo:\n"))
-err = float(input("Informe o valor do erro em decimal:\n"))
-y1  = input("Informe a função f(x):\n")
-y2  = input("Informe a função g(x):\n")
-funcao = str(y1).replace("**", "^").replace("*","")
-
 def f(x):
     y = eval(y1)
     return y 
 def g(x):
     z = eval(y2)
     return z 
+def fixedPointIteration():
+    if(b>a):
+        X_m = (a+b)/2
+        k = 0
+        
+        while abs(f(X_m))>err:
+            X_m = g(X_m)
+            if (k+1 <= k_max):
+                print('Iteração-%d, x= %0.6f e f(x) = %0.6f' % (k, X_m, f(X_m)))
+            k = k+1
 
-X_m = (a+b)/2
-k = 0
+        if(k > k_max):
+            print('Não Converge.')
 
-while abs(f(X_m))>err:
-    k = k+1
-    X_m = g(X_m)
-print("\nA raiz para a função: ",funcao," é aprox. x=",X_m,'com',k,' iterações' )
+print("Método do Ponto Fixo!")
+a = float(input("Informe o primeiro intervalo:\n"))
+b = float(input("Informe o segundo intervalo:\n"))
+err = float(input("Informe o valor do erro em decimal:\n"))
+k_max = int(input("Informe a quantidade máxima de iterações:\n"))
+y1 = input("Informe a função f(x):\n")
+y2 = input("Informe a função g(x):\n")
+funcao = str(y1).replace("**", "^").replace("*","")
+
+fixedPointIteration()
+
+#print("\nA raiz para a função: ",funcao," é aprox. x=",X_m,'com',k,' iterações')
 
 # 1° exemplo 
 # f(x)= x^2 -6x +3
 # g(x) = raiz(6x -3)
 # E=0.01
 # [5,6]
-# 6 iterações, raiz 5,4505
+# 6 iterações, raiz 5,4508
 
 # 2º Exemplo 
 # f(x)= x^3-9x+5 
