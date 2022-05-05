@@ -1,5 +1,13 @@
 from numpy import*
-import math
+
+print("Método do Ponto Fixo!")
+a = float(input("Informe o primeiro intervalo:\n"))
+b = float(input("Informe o segundo intervalo:\n"))
+err = float(input("Informe o valor do erro em decimal:\n"))
+k_max = int(input("Informe a quantidade máxima de iterações:\n"))
+y1 = input("Informe a função f(x):\n")
+y2 = input("Informe a função g(x):\n")
+funcao = str(y1).replace("**", "^").replace("*","")
 
 def f(x):
     y = eval(y1)
@@ -19,18 +27,12 @@ def fixedPointIteration():
             k = k+1
 
         if(k > k_max):
-            print('Não Converge.')
-
-print("Método do Ponto Fixo!")
-a = float(input("Informe o primeiro intervalo:\n"))
-b = float(input("Informe o segundo intervalo:\n"))
-err = float(input("Informe o valor do erro em decimal:\n"))
-k_max = int(input("Informe a quantidade máxima de iterações:\n"))
-y1 = input("Informe a função f(x):\n")
-y2 = input("Informe a função g(x):\n")
-funcao = str(y1).replace("**", "^").replace("*","")
+            print('\nAtingiu o limite máximo de iterações.')
+        else:
+            print("\nA raiz para a função: ",funcao," é aprox. x=",X_m,'com',k,' iterações')
 
 fixedPointIteration()
+
 
 #print("\nA raiz para a função: ",funcao," é aprox. x=",X_m,'com',k,' iterações')
 
