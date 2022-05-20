@@ -1,22 +1,31 @@
-import math
+from numpy import *
+
+print("Método do Ponto Fixo")
+a = float(input("Informe o primeiro intervalo:\n"))
+b = float(input("Informe o segundo intervalo:\n"))
+e=float(input("Entre com o numero real e:\n"))
+y1 = input("Informe a função f(x):\n")
+y2 = input("Informe a função g(x):\n")
+funcao = str(y1).replace("**", "^").replace("*","")
 
 def f(x):
-    return pow(x,2) - math.exp(x)
-
+    y = eval(y1)
+    return y 
 def g(x):
-    return -math.sqrt(math.exp(x))
+    z = eval(y2)
+    return z 
 
-def fixedPoint():
-    x0 = float(input("Digite a aproximação inicial x0: "))
-    quantidadeIteracoes = int(input("Digite a quantidade de iterações: "))
-    iteracao = 0
-    x1 = 0
-    while iteracao <= quantidadeIteracoes:
-        x1 = g(x0)
-        x0 = x1
-        iteracao += 1
-    print("A raiz encontrada foi x = ", x1)
-    print("f(x) = ", f(x1))
-    print("g(x) = ",x1)
-
-fixedPoint()
+def fixedPointIteration():
+    if( b>a):
+        x0=(a+b)/2
+        i=1
+        while True:
+            x1=g(x0)
+            print('Iteração-%d, x= %0.6f e f(x) = %0.6f' % (i, x1, f(x1)))
+            
+            if abs(f(x1)) < e or abs(abs(x1)-abs(x0)) <e:
+                print("\nFunção : %s , Número de iterações = %d, x = %0.6f e f(x) = %0.6f" % (funcao, i, x1, f(x1)))
+                break   
+            i+=1
+            x0=x1
+fixedPointIteration()
